@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "copy-profile": "node -e \"require('fs').copyFileSync('C:/Users/hp/.gemini/antigravity-ide/brain/2c0785f0-a37c-484a-b6aa-f62db885f097/media__1784799388884.jpg', 'c:/Users/hp/OneDrive/Desktop/Portfolio/public/profile.jpg')\"",
     "build": "tsc && vite build",
     "lint": "tsc",
     "preview": "vite preview"

@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle2, ArrowRight, Github, Linkedin } from 'lucide-react';
 import { PERSONAL_INFO } from '../../data/portfolioData';
 
+import emailjs from '@emailjs/browser';
+
 export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -14,18 +16,50 @@ export const ContactSection: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate contact form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (serviceId && templateId && publicKey) {
+        await emailjs.send(
+          serviceId,
+          templateId,
+          {
+            from_name: formData.name,
+            from_email: formData.email,
+            subject: formData.subject,
+            message: formData.message,
+            to_email: PERSONAL_INFO.email,
+          },
+          publicKey
+        );
+      } else {
+        // Fallback: Open email client addressed to sparshchauhan050@gmail.com
+        const mailtoUrl = `mailto:${PERSONAL_INFO.email}?subject=${encodeURIComponent(
+          formData.subject || 'Portfolio Contact'
+        )}&body=${encodeURIComponent(
+          `From: ${formData.name} (${formData.email})\n\nMessage:\n${formData.message}`
+        )}`;
+        window.location.href = mailtoUrl;
+      }
       setSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
-
       setTimeout(() => setSubmitted(false), 6000);
-    }, 1200);
+    } catch (err) {
+      console.error('EmailJS error, using mailto fallback:', err);
+      window.location.href = `mailto:${PERSONAL_INFO.email}?subject=${encodeURIComponent(
+        formData.subject || 'Portfolio Contact'
+      )}&body=${encodeURIComponent(
+        `From: ${formData.name} (${formData.email})\n\nMessage:\n${formData.message}`
+      )}`;
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactMethods = [

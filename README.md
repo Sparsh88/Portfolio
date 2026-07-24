@@ -8,7 +8,7 @@ The portfolio is built using **React**, **TypeScript**, **Vite**, **Tailwind CSS
 
 ## 🔗 Live Demo
 
-🌐 **Portfolio:** https://your-portfolio.vercel.app
+🌐 **Portfolio:** https://portfolio-flame-rho-29.vercel.app/
 
 
 ---

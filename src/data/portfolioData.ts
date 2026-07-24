@@ -9,6 +9,7 @@ export const PERSONAL_INFO = {
   phone: '+91 70889 51914',
   github: 'https://github.com/Sparsh88',
   linkedin: 'https://linkedin.com/in/sparshchauhan08',
+  leetcode: 'https://leetcode.com/u/sparshchauhan/',
   twitter: 'https://twitter.com/sparshchauhan',
   bio: 'I am a passionate 3rd-year Computer Science Engineering student at Lovely Professional University with deep expertise in modern React ecosystems, Node.js backends, database architecture, and full stack web application development. I build fast, accessible, and delightful digital experiences engineered for real-world impact.',
   quickFacts: [

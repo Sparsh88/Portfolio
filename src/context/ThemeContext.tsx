@@ -1,6 +1,13 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
+import { AccentTheme, ThemeMode } from '../types';
 
 interface ThemeContextType {
+  mode: ThemeMode;
+  toggleMode: () => void;
+  accent: AccentTheme;
+  setAccent: (accent: AccentTheme) => void;
+  soundEnabled: boolean;
+  toggleSound: () => void;
   isCommandPaletteOpen: boolean;
   setIsCommandPaletteOpen: (open: boolean) => void;
 }
@@ -8,7 +15,18 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [mode, setMode] = useState<ThemeMode>('dark');
+  const [accent, setAccent] = useState<AccentTheme>('violet');
+  const [soundEnabled, setSoundEnabled] = useState(true);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+
+  const toggleMode = () => {
+    setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
+  };
+
+  const toggleSound = () => {
+    setSoundEnabled((prev) => !prev);
+  };
 
   // Keyboard shortcut listener for Command Palette (Cmd/Ctrl + K)
   useEffect(() => {
@@ -25,6 +43,12 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   return (
     <ThemeContext.Provider
       value={{
+        mode,
+        toggleMode,
+        accent,
+        setAccent,
+        soundEnabled,
+        toggleSound,
         isCommandPaletteOpen,
         setIsCommandPaletteOpen,
       }}

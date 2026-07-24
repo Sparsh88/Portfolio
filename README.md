@@ -143,7 +143,7 @@ Portfolio
 Clone the repository
 
 ```bash
-git clone https://github.com/Sparsh88/portfolio.git
+git clone https://github.com/Sparsh88/Portfolio.git
 ```
 
 Navigate to the project

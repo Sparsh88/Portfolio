@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node copy_media.cjs && vite",
-    "build": "node copy_media.cjs && tsc && vite build",
+    "dev": "vite",
+    "build": "tsc && vite build",
     "lint": "tsc",
     "preview": "vite preview"
   },

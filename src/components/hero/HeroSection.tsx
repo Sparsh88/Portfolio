@@ -1,7 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, MessageSquare, Download } from 'lucide-react';
-const profilePic = '/profile.jpg';
+import userProfilePic from 'C:/Users/hp/.gemini/antigravity-ide/brain/4475ed7e-2265-4d91-9c97-44268187db70/media__1784961243785.jpg';
+
+const profilePic = userProfilePic || '/profile.jpg';
 
 export const HeroSection: React.FC = () => {
   const handleScrollTo = (selector: string) => {

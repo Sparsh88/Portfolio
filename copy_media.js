@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const srcDir = 'C:/Users/hp/.gemini/antigravity-ide/brain/2c0785f0-a37c-484a-b6aa-f62db885f097';
+const srcDir = 'C:/Users/hp/.gemini/antigravity-ide/brain/4475ed7e-2265-4d91-9c97-44268187db70';
 const publicDir = path.join(__dirname, 'public');
 const certsDir = path.join(publicDir, 'certificates');
 
@@ -14,7 +14,7 @@ if (!fs.existsSync(certsDir)) {
 }
 
 // Copy profile pic
-fs.copyFileSync(path.join(srcDir, 'media__1784799388884.jpg'), path.join(publicDir, 'profile.jpg'));
+fs.copyFileSync(path.join(srcDir, 'media__1784961243785.jpg'), path.join(publicDir, 'profile.jpg'));
 
 // Copy certificate PDFs
 fs.copyFileSync(path.join(srcDir, 'media__1784802250402.pdf'), path.join(certsDir, 'cert-dbms.pdf'));

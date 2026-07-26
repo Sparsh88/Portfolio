@@ -333,7 +333,7 @@ export const TIMELINE_DATA: TimelineItem[] = [
 ];
 
 export const ACHIEVEMENTS_DATA: Achievement[] = [
-  { title: 'Projects Built', value: '6', suffix: ' Live', description: 'Production-ready web applications deployed live on Vercel with clean code architecture.', icon: 'FolderGit2' },
+  { title: 'Projects Built', value: '7', suffix: ' Live', description: 'Production-ready web applications deployed live on Vercel with clean code architecture.', icon: 'FolderGit2' },
   { title: 'Overall CGPA', value: '8.53', suffix: '', description: 'Academic excellence in Computer Science Engineering at Lovely Professional University (LPU).', icon: 'Award' },
   { title: 'Certificates Earned', value: '5', suffix: ' Verifiable', description: 'Verified credentials from Infosys Springboard, Coding Tantra, WNS, and AccentureEmph.', icon: 'Award' },
   { title: 'GitHub Profile', value: 'Sparsh88', suffix: '', description: 'Active open source contributions and full stack web application builds.', icon: 'GitCommit' }

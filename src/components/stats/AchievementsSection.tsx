@@ -7,7 +7,7 @@ export const AchievementsSection: React.FC = () => {
   const highlights = [
     {
       id: 'projects',
-      value: '6 Live',
+      value: '7 Live',
       label: 'Projects Built',
       description: 'Production-ready web applications deployed live on Vercel with clean code architecture.',
       icon: Code2,

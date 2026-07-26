@@ -12,7 +12,7 @@ interface GitHubData {
 
 export const GitHubStatsCard: React.FC = () => {
   const [githubStats, setGithubStats] = useState<GitHubData>({
-    publicRepos: 7,
+    publicRepos: 9,
     followers: 1,
     following: 0,
     avatarUrl: 'https://github.com/Sparsh88.png',
@@ -28,7 +28,7 @@ export const GitHubStatsCard: React.FC = () => {
         if (res.ok) {
           const data = await res.json();
           setGithubStats({
-            publicRepos: data.public_repos || 7,
+            publicRepos: data.public_repos || 9,
             followers: data.followers || 1,
             following: data.following || 0,
             avatarUrl: data.avatar_url || 'https://github.com/Sparsh88.png',
@@ -101,7 +101,7 @@ export const GitHubStatsCard: React.FC = () => {
 
         <div className="p-4 rounded-2xl bg-black border border-zinc-900 hover:border-blue-500/60 transition-all text-center group/metric">
           <Star className="w-4 h-4 text-amber-400 mx-auto mb-1.5 group-hover/metric:scale-110 transition-transform" />
-          <div className="text-2xl font-bold text-white font-mono">6 Live</div>
+          <div className="text-2xl font-bold text-white font-mono">7 Live</div>
           <div className="text-[10px] text-slate-400 font-mono uppercase tracking-wider">Vercel Apps</div>
         </div>
       </div>

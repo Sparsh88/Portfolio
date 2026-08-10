@@ -36,7 +36,7 @@ export const AboutSection: React.FC = () => {
             className="lg:col-span-7 space-y-6 text-left"
           >
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
-              I am a passionate Full Stack Developer and 3rd-Year Computer Science Engineering Student at Lovely Professional University (LPU) with a strong foundation in modern web technologies. I specialize in building end-to-end web applications with React, Node.js, Express, MongoDB, and TypeScript.
+              I am a passionate Full Stack Developer and 3rd-Year Computer Science Engineering Student at Lovely Professional University (LPU) with a strong foundation in modern web technologies. I specialize in building end-to-end web applications with React, Next.js, Node.js, Express, MongoDB, and TypeScript.
             </p>
 
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">

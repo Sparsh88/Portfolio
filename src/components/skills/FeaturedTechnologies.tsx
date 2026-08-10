@@ -5,10 +5,10 @@ import { Cpu, ShieldCheck, Activity, Database } from 'lucide-react';
 export const FeaturedTechnologies: React.FC = () => {
   const techItems = [
     {
-      title: 'React 19 Core',
-      tag: 'MODERN CLIENT UI',
+      title: 'Next.js & React 19',
+      tag: 'MODERN CLIENT & SSR',
       icon: Cpu,
-      description: 'Hooks architecture, state management, client routing, context APIs, lazy rendering optimization, and concurrent features.',
+      description: 'Next.js App Router, Server Actions, SSR/SSG rendering, React 19 hooks, state management, and optimized asset pipelines.',
     },
     {
       title: 'Node.js & Express',

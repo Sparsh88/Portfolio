@@ -11,12 +11,12 @@ export const PERSONAL_INFO = {
   linkedin: 'https://linkedin.com/in/sparshchauhan08',
   leetcode: 'https://leetcode.com/u/sparshchauhan/',
   twitter: 'https://twitter.com/sparshchauhan',
-  bio: 'I am a passionate 3rd-year Computer Science Engineering student at Lovely Professional University with deep expertise in modern React ecosystems, Node.js backends, database architecture, and full stack web application development. I build fast, accessible, and delightful digital experiences engineered for real-world impact.',
+  bio: 'I am a passionate 3rd-year Computer Science Engineering student at Lovely Professional University with deep expertise in modern React ecosystems, Next.js, Node.js backends, database architecture, and full stack web application development. I build fast, accessible, and delightful digital experiences engineered for real-world impact.',
   quickFacts: [
     { label: 'College', value: 'Lovely Professional University (LPU)' },
     { label: 'Degree', value: 'B.Tech CS (3rd Year)' },
     { label: 'CGPA', value: '8.53' },
-    { label: 'Primary Tech', value: 'React 19, TypeScript, Node.js, Express' },
+    { label: 'Primary Tech', value: 'React 19, Next.js, TypeScript, Node.js, Express' },
     { label: 'Availability', value: 'Open for Software Engineering Internships' },
   ],
   languages: ['English (Fluent)', 'Hindi (Native)'],
@@ -194,6 +194,7 @@ export const SKILLS_DATA: Skill[] = [
   { name: 'JavaScript (ES6+)', category: 'Frontend', icon: 'SiJavascript', level: 92, experience: '3+ Years', featured: true },
   { name: 'TypeScript', category: 'Frontend', icon: 'SiTypescript', level: 90, experience: '2+ Years', featured: true },
   { name: 'React 19 / 18', category: 'Frontend', icon: 'FaReact', level: 94, experience: '3+ Years', featured: true },
+  { name: 'Next.js 14 / 15', category: 'Frontend', icon: 'SiNextdotjs', level: 92, experience: '2+ Years', featured: true },
   { name: 'Tailwind CSS', category: 'Frontend', icon: 'SiTailwindcss', level: 96, experience: '2.5 Years', featured: true },
 
   // Backend

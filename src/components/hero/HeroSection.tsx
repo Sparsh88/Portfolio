@@ -106,7 +106,7 @@ export const HeroSection: React.FC = () => {
 
                 {/* Floating Tag Bottom Left matching Screenshot 5 */}
                 <div className="absolute bottom-4 left-4 px-3 py-1 rounded-full bg-black/90 border border-zinc-800 text-[10px] font-mono text-slate-300 font-semibold shadow-lg backdrop-blur-md">
-                  React • Node.js
+                  Next.js • React 19
                 </div>
               </div>
 

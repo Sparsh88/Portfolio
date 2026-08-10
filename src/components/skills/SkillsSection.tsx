@@ -25,6 +25,7 @@ export const SkillsSection: React.FC = () => {
       description: 'Building responsive, modern, and pixel-perfect user interfaces with smooth animations.',
       skills: [
         { name: 'React 19 / 18', level: 'EXPERT', dots: 3, icon: Code2 },
+        { name: 'Next.js (App Router / SSR)', level: 'EXPERT', dots: 3, icon: Sparkles },
         { name: 'Tailwind CSS', level: 'EXPERT', dots: 3, icon: Layers },
         { name: 'JavaScript (ES6+)', level: 'EXPERT', dots: 3, icon: Terminal },
         { name: 'TypeScript', level: 'ADVANCED', dots: 3, icon: FileCode },

@@ -4,7 +4,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
+    "predev": "node copy_media.js",
     "dev": "vite",
+    "prebuild": "node copy_media.js",
     "build": "tsc && vite build",
     "lint": "tsc",
     "preview": "vite preview"

@@ -3,6 +3,9 @@
 <div align="center">
 
   <!-- Badges -->
+  <a href="https://portfolio-delta-topaz-jsfd5oekgj.vercel.app/">
+    <img src="https://img.shields.io/badge/Live%20Demo-Vercel-black?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" />
+  </a>
   <a href="https://github.com/Sparsh88/Portfolio">
     <img src="https://img.shields.io/badge/Status-Active%20%26%20Maintained-emerald?style=for-the-badge&logo=github" alt="Status" />
   </a>
@@ -26,6 +29,10 @@
 
   <p align="center">
     <strong>Personal developer portfolio website showcasing full-stack web applications, AI integrations, verified credentials, and academic milestones.</strong>
+  </p>
+
+  <p align="center">
+    <a href="https://portfolio-delta-topaz-jsfd5oekgj.vercel.app/"><strong>🌐 Live Demo: portfolio-delta-topaz-jsfd5oekgj.vercel.app</strong></a>
   </p>
 
   <p align="center">
@@ -188,8 +195,19 @@ Portfolio/
 ├── package.json             # Dependencies and build scripts
 ├── tailwind.config.js       # Tailwind CSS styling extensions
 ├── tsconfig.json            # TypeScript configuration
+├── vercel.json              # Vercel deployment & routing configuration
 └── vite.config.ts           # Vite build pipeline setup
 ```
+
+---
+
+## 🌐 Live Deployment
+
+The portfolio is deployed and live on Vercel:
+
+- **Production URL**: [https://portfolio-delta-topaz-jsfd5oekgj.vercel.app/](https://portfolio-delta-topaz-jsfd5oekgj.vercel.app/)
+- **Platform**: [Vercel](https://vercel.com)
+- **Continuous Deployment**: Automated on git pushes to `main` branch.
 
 ---
 

@@ -114,19 +114,19 @@ export const Hero: React.FC = () => {
 
           {/* Right Column: User Portrait Card */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.9, rotate: -1 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="lg:col-span-5 flex justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-[340px] sm:max-w-[380px] aspect-square rounded-[2.5rem] bg-white dark:bg-[#0D0D0D] p-3 border-2 border-neutral-300 dark:border-neutral-800 shadow-md group hover:shadow-xl transition-all duration-300">
+            <div className="relative w-full max-w-[300px] sm:max-w-[350px] lg:max-w-[380px] aspect-square rounded-full bg-white dark:bg-[#0D0D0D] p-3 border-2 border-neutral-300 dark:border-neutral-800 shadow-xl group hover:shadow-2xl transition-all duration-300">
               
-              {/* Inner Portrait Container */}
-              <div className="w-full h-full rounded-[2rem] overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 relative">
+              {/* Inner Circular Portrait Container */}
+              <div className="w-full h-full rounded-full overflow-hidden bg-neutral-100 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 relative">
                 <img
                   src={profileImg}
                   alt="Sparsh Chauhan - Full Stack Developer"
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-full object-cover object-[50%_18%] scale-[1.35] group-hover:scale-[1.42] transition-transform duration-700 ease-out"
                 />
               </div>
 

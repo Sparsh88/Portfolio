@@ -1,42 +1,35 @@
 import React from 'react';
 import { ThemeProvider } from './context/ThemeContext';
-import { Navbar } from './components/common/Navbar';
-import { Footer } from './components/common/Footer';
-import { ScrollProgress } from './components/common/ScrollProgress';
-import { CustomCursor } from './components/common/CustomCursor';
-import { CommandPalette } from './components/common/CommandPalette';
-import { HeroSection } from './components/hero/HeroSection';
-import { AboutSection } from './components/about/AboutSection';
-import { SkillsSection } from './components/skills/SkillsSection';
-import { CertificatesSection } from './components/certificates/CertificatesSection';
-import { ServicesSection } from './components/services/ServicesSection';
-import { TimelineSection } from './components/timeline/TimelineSection';
-import { ProjectsSection } from './components/projects/ProjectsSection';
-import { AchievementsSection } from './components/stats/AchievementsSection';
-import { ContactSection } from './components/contact/ContactSection';
+import { Navbar } from './components/Navbar';
+import { Hero } from './components/Hero';
+import { About } from './components/About';
+import { Skills } from './components/Skills';
+import { Projects } from './components/Projects';
+import { Certificates } from './components/Certificates';
+import { Achievements } from './components/Achievements';
+import { Contact } from './components/Contact';
+import { Footer } from './components/Footer';
 
 export const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-[#0b0b0b] text-white selection:bg-blue-500/30 selection:text-white overflow-x-hidden">
-        <ScrollProgress />
-        <CustomCursor />
+      <div className="min-h-screen bg-[#F3F4F6] dark:bg-[#000000] text-neutral-950 dark:text-white flex flex-col selection:bg-neutral-900 dark:selection:bg-white selection:text-white dark:selection:text-black transition-colors duration-300">
+        {/* Sticky Editorial Navbar */}
         <Navbar />
 
-        <main className="bg-[#0b0b0b]">
-          <HeroSection />
-          <AboutSection />
-          <SkillsSection />
-          <CertificatesSection />
-          <ServicesSection />
-          <TimelineSection />
-          <ProjectsSection />
-          <AchievementsSection />
-          <ContactSection />
+        {/* Main Content Sections */}
+        <main className="flex-1">
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Certificates />
+          <Achievements />
+          <Contact />
         </main>
 
+        {/* Clean Minimalist Footer */}
         <Footer />
-        <CommandPalette />
       </div>
     </ThemeProvider>
   );

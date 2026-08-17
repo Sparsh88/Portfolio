@@ -1,58 +1,38 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { AccentTheme, ThemeMode } from '../types';
+
+type Theme = 'light' | 'dark';
 
 interface ThemeContextType {
-  mode: ThemeMode;
-  toggleMode: () => void;
-  accent: AccentTheme;
-  setAccent: (accent: AccentTheme) => void;
-  soundEnabled: boolean;
-  toggleSound: () => void;
-  isCommandPaletteOpen: boolean;
-  setIsCommandPaletteOpen: (open: boolean) => void;
+  theme: Theme;
+  toggleTheme: () => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [mode, setMode] = useState<ThemeMode>('dark');
-  const [accent, setAccent] = useState<AccentTheme>('violet');
-  const [soundEnabled, setSoundEnabled] = useState(true);
-  const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+  const [theme, setTheme] = useState<Theme>(() => {
+    // Check localStorage or system preference
+    const saved = localStorage.getItem('portfolio_theme');
+    if (saved === 'dark' || saved === 'light') return saved;
+    return 'light'; // default to light as previously configured
+  });
 
-  const toggleMode = () => {
-    setMode((prev) => (prev === 'dark' ? 'light' : 'dark'));
-  };
-
-  const toggleSound = () => {
-    setSoundEnabled((prev) => !prev);
-  };
-
-  // Keyboard shortcut listener for Command Palette (Cmd/Ctrl + K)
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        setIsCommandPaletteOpen((prev) => !prev);
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+    const root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('portfolio_theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
+  };
 
   return (
-    <ThemeContext.Provider
-      value={{
-        mode,
-        toggleMode,
-        accent,
-        setAccent,
-        soundEnabled,
-        toggleSound,
-        isCommandPaletteOpen,
-        setIsCommandPaletteOpen,
-      }}
-    >
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

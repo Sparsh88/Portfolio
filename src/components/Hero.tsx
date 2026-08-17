@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, FileText } from 'lucide-react';
+import { motion } from 'framer-motion';
 import profileImg from '../assets/profile.jpg';
 
 export const Hero: React.FC = () => {
@@ -20,39 +21,69 @@ export const Hero: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
           {/* Left Column: Hero Content */}
-          <div className="lg:col-span-7 space-y-5 sm:space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="lg:col-span-7 space-y-5 sm:space-y-6"
+          >
             
             {/* Status Pill Badge */}
-            <div className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-white dark:bg-[#0D0D0D] border-2 border-neutral-300 dark:border-neutral-800 shadow-xs">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="inline-flex items-center space-x-2.5 px-3.5 py-1.5 rounded-full bg-violet-50 dark:bg-violet-950/70 border border-violet-200 dark:border-violet-800 shadow-xs"
+            >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neutral-400 dark:bg-emerald-400 opacity-60"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-neutral-700 dark:bg-emerald-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 dark:bg-violet-400 opacity-60"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-600 dark:bg-violet-400"></span>
               </span>
-              <span className="text-[11px] font-bold text-neutral-900 dark:text-neutral-200 tracking-wider uppercase">
+              <span className="text-[11px] font-bold text-violet-700 dark:text-violet-300 tracking-wider uppercase">
                 AVAILABLE FOR INTERNSHIPS &amp; PROJECTS
               </span>
-            </div>
+            </motion.div>
 
             {/* Name Overline */}
-            <div className="text-base sm:text-lg font-bold text-neutral-500 dark:text-neutral-400 tracking-tight">
+            <motion.div 
+              initial={{ opacity: 0, x: -15 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="text-base sm:text-lg font-bold text-neutral-500 dark:text-neutral-400 tracking-tight"
+            >
               Sparsh Chauhan
-            </div>
+            </motion.div>
 
             {/* Balanced FULL-STACK DEVELOPER Heading */}
-            <div className="space-y-0.5">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="space-y-0.5"
+            >
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-neutral-950 dark:text-white uppercase tracking-tight leading-[1.05]">
                 FULL-STACK<br />
                 <span className="text-neutral-400 dark:text-neutral-500">DEVELOPER</span>
               </h1>
-            </div>
+            </motion.div>
 
             {/* Subtext */}
-            <p className="text-neutral-600 dark:text-neutral-300 text-sm sm:text-base leading-relaxed max-w-xl font-normal pt-1">
-              Hi, I'm Sparsh, a B.Tech Computer Science &amp; Engineering student at Lovely Professional University, building high-quality, functional, and intuitive web experiences.
-            </p>
+            <motion.p 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="text-neutral-600 dark:text-neutral-300 text-sm sm:text-base leading-relaxed max-w-xl font-normal pt-1"
+            >
+              I am a Full-Stack Developer and a Computer Science &amp; Engineering student at Lovely Professional University. I specialize in building scalable, responsive, and user-centric web applications, bridging the gap between robust backend logic and seamless frontend experiences to deliver high-quality digital solutions.
+            </motion.p>
 
             {/* Action Buttons: View Projects, Resume, Get In Touch */}
-            <div className="pt-3 flex flex-wrap items-center gap-3 sm:gap-4">
+            <motion.div 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="pt-3 flex flex-wrap items-center gap-3 sm:gap-4"
+            >
               <a
                 href="#projects"
                 className="inline-flex items-center space-x-2 px-6 py-3.5 text-sm font-semibold text-white bg-black hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200 rounded-full transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:scale-95"
@@ -78,11 +109,16 @@ export const Hero: React.FC = () => {
               >
                 Get In Touch
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Column: User Portrait Card */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.9, rotate: -1 }}
+            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="lg:col-span-5 flex justify-center lg:justify-end"
+          >
             <div className="relative w-full max-w-[340px] sm:max-w-[380px] aspect-square rounded-[2.5rem] bg-white dark:bg-[#0D0D0D] p-3 border-2 border-neutral-300 dark:border-neutral-800 shadow-md group hover:shadow-xl transition-all duration-300">
               
               {/* Inner Portrait Container */}
@@ -95,7 +131,7 @@ export const Hero: React.FC = () => {
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUp } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
+import { motion } from 'framer-motion';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -9,7 +10,13 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="bg-white dark:bg-[#000000] border-t-2 border-neutral-300 dark:border-neutral-800 py-12 transition-colors duration-300">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.div 
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] }}
+        className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           
           {/* Logo & Copyright */}
@@ -56,7 +63,7 @@ export const Footer: React.FC = () => {
           </div>
 
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 };

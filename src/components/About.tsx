@@ -1,12 +1,20 @@
 import React from 'react';
 import { Code, Award } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const About: React.FC = () => {
   return (
     <section id="about" className="py-20 sm:py-28 bg-[#F3F4F6] dark:bg-[#000000] border-y border-neutral-300 dark:border-neutral-800 scroll-mt-16 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Section Header */}
-        <div className="space-y-4">
+        
+        {/* Section Header with Scroll Reveal */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="space-y-4"
+        >
           <div className="inline-block">
             <span className="bg-white dark:bg-[#0D0D0D] border-2 border-neutral-300 dark:border-neutral-800 text-neutral-900 dark:text-neutral-200 text-[11px] font-bold px-3.5 py-1 rounded-full tracking-wider uppercase shadow-xs">
               ABOUT ME
@@ -17,11 +25,18 @@ export const About: React.FC = () => {
             PASSIONATE DEVELOPER,<br />
             <span className="text-neutral-400 dark:text-neutral-500">PROBLEM SOLVER.</span>
           </h2>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start pt-2">
-          {/* Left Column: Narrative */}
-          <div className="lg:col-span-7 space-y-5 text-neutral-700 dark:text-neutral-300 leading-relaxed text-sm sm:text-base font-normal">
+          
+          {/* Left Column: Narrative & Focus Cards */}
+          <motion.div 
+            initial={{ opacity: 0, x: -25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.65, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="lg:col-span-7 space-y-5 text-neutral-700 dark:text-neutral-300 leading-relaxed text-sm sm:text-base font-normal"
+          >
             <p>
               I am a passionate <strong className="text-neutral-950 dark:text-white font-semibold">Full Stack Developer</strong> and <strong className="text-neutral-950 dark:text-white font-semibold">Computer Science Engineering Student</strong> at <strong className="text-neutral-950 dark:text-white font-semibold">Lovely Professional University (LPU)</strong> with a strong foundation in modern web technologies. I specialize in building end-to-end web applications with React, Next.js, Node.js, Express, MongoDB, and TypeScript.
             </p>
@@ -36,7 +51,10 @@ export const About: React.FC = () => {
 
             {/* Core Focus Cards */}
             <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="p-4.5 rounded-2xl bg-white dark:bg-[#0D0D0D] border-2 border-neutral-300 dark:border-neutral-800 hover:border-black dark:hover:border-neutral-500 flex items-start space-x-3.5 shadow-md hover:shadow-xl transition-all duration-300 ease-out transform hover:-translate-y-1">
+              <motion.div 
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="p-4.5 rounded-2xl bg-white dark:bg-[#0D0D0D] border-2 border-neutral-300 dark:border-neutral-800 hover:border-black dark:hover:border-neutral-500 flex items-start space-x-3.5 shadow-md hover:shadow-xl transition-all duration-300 ease-out"
+              >
                 <div className="w-9 h-9 rounded-xl bg-black dark:bg-white text-white dark:text-black flex items-center justify-center shrink-0 shadow-xs">
                   <Code className="w-4 h-4" />
                 </div>
@@ -44,9 +62,12 @@ export const About: React.FC = () => {
                   <h4 className="text-xs font-bold text-neutral-950 dark:text-white uppercase tracking-wider">End-to-End Engineering</h4>
                   <p className="text-[11px] text-neutral-600 dark:text-neutral-400 mt-1">SaaS, Real-time collaboration, & robust RESTful APIs</p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="p-4.5 rounded-2xl bg-white dark:bg-[#0D0D0D] border-2 border-neutral-300 dark:border-neutral-800 hover:border-black dark:hover:border-neutral-500 flex items-start space-x-3.5 shadow-md hover:shadow-xl transition-all duration-300 ease-out transform hover:-translate-y-1">
+              <motion.div 
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="p-4.5 rounded-2xl bg-white dark:bg-[#0D0D0D] border-2 border-neutral-300 dark:border-neutral-800 hover:border-black dark:hover:border-neutral-500 flex items-start space-x-3.5 shadow-md hover:shadow-xl transition-all duration-300 ease-out"
+              >
                 <div className="w-9 h-9 rounded-xl bg-black dark:bg-white text-white dark:text-black flex items-center justify-center shrink-0 shadow-xs">
                   <Award className="w-4 h-4" />
                 </div>
@@ -54,12 +75,18 @@ export const About: React.FC = () => {
                   <h4 className="text-xs font-bold text-neutral-950 dark:text-white uppercase tracking-wider">Competitive & Social</h4>
                   <p className="text-[11px] text-neutral-600 dark:text-neutral-400 mt-1">CodeClash participant, certifications & CSR initiatives</p>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Education & Affiliations */}
-          <div className="lg:col-span-5 group bg-white dark:bg-[#0D0D0D] rounded-3xl p-7 sm:p-8 border-2 border-neutral-300 dark:border-neutral-800 hover:border-black dark:hover:border-neutral-500 shadow-md hover:shadow-2xl transition-all duration-300 ease-out transform hover:-translate-y-2 space-y-7 cursor-default">
+          {/* Right Column: Education & Affiliations Timeline */}
+          <motion.div 
+            initial={{ opacity: 0, x: 25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.65, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="lg:col-span-5 group bg-white dark:bg-[#0D0D0D] rounded-3xl p-7 sm:p-8 border-2 border-neutral-300 dark:border-neutral-800 hover:border-black dark:hover:border-neutral-500 shadow-md hover:shadow-2xl transition-all duration-300 ease-out transform hover:-translate-y-2 space-y-7 cursor-default"
+          >
             {/* Top Badge */}
             <div className="inline-block">
               <span className="bg-violet-50 dark:bg-violet-950/70 text-violet-700 dark:text-violet-300 border border-violet-200 dark:border-violet-800 text-[11px] font-bold px-3 py-1 rounded-md tracking-wider uppercase shadow-3xs group-hover:bg-violet-100 dark:group-hover:bg-violet-900 transition-colors">
@@ -113,7 +140,7 @@ export const About: React.FC = () => {
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

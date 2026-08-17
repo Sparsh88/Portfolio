@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 
 export const Navbar: React.FC = () => {
@@ -7,6 +8,14 @@ export const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const { theme, toggleTheme } = useTheme();
+
+  // Scroll Progress Bar
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,7 +26,7 @@ export const Navbar: React.FC = () => {
       }
 
       // Active section detection
-      const sections = ['home', 'about', 'skills', 'projects', 'certificates', 'achievements', 'contact'];
+      const sections = ['home', 'about', 'skills', 'projects', 'certificates', 'contact'];
       const scrollPosition = window.scrollY + 120;
 
       for (const section of sections) {
@@ -43,7 +52,6 @@ export const Navbar: React.FC = () => {
     { name: 'Skills', href: '#skills', id: 'skills' },
     { name: 'Projects', href: '#projects', id: 'projects' },
     { name: 'Certificates', href: '#certificates', id: 'certificates' },
-    { name: 'Milestones', href: '#achievements', id: 'achievements' },
     { name: 'Contact', href: '#contact', id: 'contact' },
   ];
 
@@ -55,6 +63,12 @@ export const Navbar: React.FC = () => {
           : 'py-5 bg-transparent border-b border-transparent'
       }`}
     >
+      {/* Scroll Progress Bar at the top of Navbar */}
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-sky-500 via-purple-500 to-emerald-500 origin-left z-50 pointer-events-none"
+        style={{ scaleX }}
+      />
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}

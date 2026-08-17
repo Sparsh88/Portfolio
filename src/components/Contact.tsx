@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Send, CheckCircle2, ArrowRight } from 'lucide-react';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
+import { motion } from 'framer-motion';
 import confetti from 'canvas-confetti';
 
 export const Contact: React.FC = () => {
@@ -23,8 +24,15 @@ export const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-20 sm:py-28 bg-[#F3F4F6] dark:bg-[#000000] border-t border-neutral-300 dark:border-neutral-800 scroll-mt-16 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Section Header */}
-        <div className="space-y-3">
+        
+        {/* Section Header with Scroll Reveal */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="space-y-3"
+        >
           <div className="inline-block">
             <span className="bg-white dark:bg-[#0D0D0D] border-2 border-neutral-300 dark:border-neutral-800 text-neutral-900 dark:text-neutral-200 text-[11px] font-bold px-3.5 py-1 rounded-full tracking-wider uppercase shadow-xs">
               CONTACT
@@ -36,11 +44,18 @@ export const Contact: React.FC = () => {
           <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-xl font-normal">
             Have a project in mind, an opportunity, or just want to discuss web engineering? Drop a message.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          
           {/* Left Column: Direct Info & Socials */}
-          <div className="lg:col-span-5 space-y-6">
+          <motion.div 
+            initial={{ opacity: 0, x: -25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="lg:col-span-5 space-y-6"
+          >
             <div className="bg-white dark:bg-[#0D0D0D] rounded-3xl p-7 border-2 border-neutral-300 dark:border-neutral-800 shadow-md space-y-6">
               <div>
                 <h3 className="text-lg font-bold text-neutral-950 dark:text-white">Direct Communication</h3>
@@ -88,10 +103,16 @@ export const Contact: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Contact Form */}
-          <div className="lg:col-span-7 bg-white dark:bg-[#0D0D0D] rounded-3xl p-7 sm:p-9 border-2 border-neutral-300 dark:border-neutral-800 shadow-md">
+          <motion.div 
+            initial={{ opacity: 0, x: 25 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.21, 0.47, 0.32, 0.98] }}
+            className="lg:col-span-7 bg-white dark:bg-[#0D0D0D] rounded-3xl p-7 sm:p-9 border-2 border-neutral-300 dark:border-neutral-800 shadow-md"
+          >
             {submitted ? (
               <div className="py-12 text-center space-y-4">
                 <div className="w-14 h-14 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto shadow-xs">
@@ -160,7 +181,7 @@ export const Contact: React.FC = () => {
                 </button>
               </form>
             )}
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

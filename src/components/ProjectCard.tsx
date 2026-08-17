@@ -11,6 +11,7 @@ import {
   Layers
 } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
+import { motion } from 'framer-motion';
 
 interface ProjectCardProps {
   project: Project;
@@ -100,8 +101,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, onOpen
     .join(' ');
 
   return (
-    <div
-      className={`group bg-white dark:bg-[#0D0D0D] rounded-3xl ${theme.border} p-5 flex flex-col justify-between transition-all duration-300 ease-out transform hover:-translate-y-1.5 shadow-md ${theme.shadowHover}`}
+    <motion.div
+      layout
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-60px" }}
+      transition={{ duration: 0.55, delay: (index % 3) * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+      whileHover={{ y: -6, transition: { duration: 0.25 } }}
+      className={`group bg-white dark:bg-[#0D0D0D] rounded-3xl ${theme.border} p-5 flex flex-col justify-between transition-all duration-300 ease-out shadow-md ${theme.shadowHover}`}
     >
       <div>
         {/* Compact Top Feature Visual Banner */}
@@ -212,6 +219,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, onOpen
           </button>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };

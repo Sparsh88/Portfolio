@@ -2,6 +2,7 @@ import React from 'react';
 import { Code2, GraduationCap, Award, ArrowUpRight } from 'lucide-react';
 import { GithubIcon } from './SocialIcons';
 import { profileData } from '../data/profile';
+import { motion } from 'framer-motion';
 
 export const Achievements: React.FC = () => {
   const achievements = [
@@ -55,8 +56,15 @@ export const Achievements: React.FC = () => {
   return (
     <section id="achievements" className="py-20 sm:py-28 bg-[#F3F4F6] dark:bg-[#000000] border-t border-neutral-300 dark:border-neutral-800 scroll-mt-16 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Section Header */}
-        <div className="space-y-3">
+        
+        {/* Section Header with Scroll Reveal */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="space-y-3"
+        >
           <div className="inline-block">
             <span className="bg-white dark:bg-[#0D0D0D] border-2 border-neutral-300 dark:border-neutral-800 text-neutral-900 dark:text-neutral-200 text-[11px] font-bold px-3.5 py-1 rounded-full tracking-wider uppercase shadow-xs">
               MILESTONES
@@ -68,48 +76,56 @@ export const Achievements: React.FC = () => {
           <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-2xl font-normal">
             Quantifiable academic milestones, project deliveries, and developer benchmarks.
           </p>
-        </div>
+        </motion.div>
 
-        {/* 4 Colored Cards Grid */}
+        {/* 4 Colored Cards Grid with Staggered Scroll Animation */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
           {achievements.map((item, idx) => {
             const CardWrapper = item.isExternal ? 'a' : 'div';
             return (
-              <CardWrapper
+              <motion.div
                 key={idx}
-                {...(item.isExternal ? { href: item.link, target: '_blank', rel: 'noopener noreferrer' } : {})}
-                className={`group bg-white dark:bg-[#0D0D0D] rounded-3xl p-7 ${item.border} shadow-md ${item.shadowHover} hover:-translate-y-2 transition-all duration-300 ease-out transform flex flex-col justify-between text-center relative cursor-pointer`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: idx * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+                whileHover={{ y: -8, transition: { duration: 0.25 } }}
               >
-                <div>
-                  {/* Colorful Top Icon Box */}
-                  <div className={`w-14 h-14 rounded-2xl ${item.iconBg} flex items-center justify-center mx-auto mb-5 shadow-xs group-hover:scale-110 transition-transform duration-300`}>
-                    {item.icon}
+                <CardWrapper
+                  {...(item.isExternal ? { href: item.link, target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  className={`group bg-white dark:bg-[#0D0D0D] rounded-3xl p-7 ${item.border} shadow-md ${item.shadowHover} transition-all duration-300 ease-out flex flex-col justify-between text-center relative cursor-pointer h-full`}
+                >
+                  <div>
+                    {/* Colorful Top Icon Box */}
+                    <div className={`w-14 h-14 rounded-2xl ${item.iconBg} flex items-center justify-center mx-auto mb-5 shadow-xs group-hover:scale-110 transition-transform duration-300`}>
+                      {item.icon}
+                    </div>
+
+                    {/* Value */}
+                    <div className="text-2xl sm:text-3xl font-extrabold text-neutral-950 dark:text-white tracking-tight">
+                      {item.value}
+                    </div>
+
+                    {/* Label Pill Badge */}
+                    <div className="mt-2 inline-block">
+                      <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border ${item.badge}`}>
+                        {item.label}
+                      </span>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-xs text-neutral-600 dark:text-neutral-400 mt-3.5 leading-relaxed font-normal">
+                      {item.description}
+                    </p>
                   </div>
 
-                  {/* Value */}
-                  <div className="text-2xl sm:text-3xl font-extrabold text-neutral-950 dark:text-white tracking-tight">
-                    {item.value}
+                  {/* Bottom subtle indicator */}
+                  <div className="pt-4 mt-5 border-t border-neutral-100 dark:border-neutral-800 flex items-center justify-center text-[11px] font-semibold text-neutral-400 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors">
+                    <span>Explore</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
-
-                  {/* Label Pill Badge */}
-                  <div className="mt-2 inline-block">
-                    <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider border ${item.badge}`}>
-                      {item.label}
-                    </span>
-                  </div>
-
-                  {/* Description */}
-                  <p className="text-xs text-neutral-600 dark:text-neutral-400 mt-3.5 leading-relaxed font-normal">
-                    {item.description}
-                  </p>
-                </div>
-
-                {/* Bottom subtle indicator */}
-                <div className="pt-4 mt-5 border-t border-neutral-100 dark:border-neutral-800 flex items-center justify-center text-[11px] font-semibold text-neutral-400 dark:text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-white transition-colors">
-                  <span>Explore</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </div>
-              </CardWrapper>
+                </CardWrapper>
+              </motion.div>
             );
           })}
         </div>

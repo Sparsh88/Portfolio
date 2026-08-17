@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { certificatesData } from '../data/certificates';
 import { ExternalLink, CheckCircle2, Calendar, BookCheck, X, FileText, Download } from 'lucide-react';
+import { motion } from 'framer-motion';
 import type { Certificate } from '../types';
 
 const CERT_THEMES = [
@@ -47,8 +48,15 @@ export const Certificates: React.FC = () => {
   return (
     <section id="certificates" className="py-20 sm:py-28 bg-[#F3F4F6] dark:bg-[#000000] scroll-mt-16 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        {/* Section Header */}
-        <div className="space-y-3">
+        
+        {/* Section Header with Scroll Reveal */}
+        <motion.div 
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="space-y-3"
+        >
           <div className="inline-block">
             <span className="bg-white dark:bg-[#0D0D0D] border-2 border-neutral-300 dark:border-neutral-800 text-neutral-900 dark:text-neutral-200 text-[11px] font-bold px-3.5 py-1 rounded-full tracking-wider uppercase shadow-xs">
               CREDENTIALS
@@ -60,16 +68,21 @@ export const Certificates: React.FC = () => {
           <p className="text-sm sm:text-base text-neutral-600 dark:text-neutral-400 max-w-xl font-normal">
             Verified credentials, academic assessments, and technical specializations.
           </p>
-        </div>
+        </motion.div>
 
         {/* Certificates Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
           {certificatesData.map((cert, idx) => {
             const theme = CERT_THEMES[idx % CERT_THEMES.length];
             return (
-              <div
+              <motion.div
                 key={cert.id}
-                className={`group ${theme.cardBg} rounded-3xl p-7 ${theme.border} shadow-md ${theme.shadowHover} hover:-translate-y-2 transition-all duration-300 ease-out transform flex flex-col justify-between`}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.5, delay: (idx % 3) * 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                className={`group ${theme.cardBg} rounded-3xl p-7 ${theme.border} shadow-md ${theme.shadowHover} transition-all duration-300 ease-out flex flex-col justify-between`}
               >
                 <div>
                   <div className="flex items-start justify-between gap-3 mb-4">
@@ -126,7 +139,7 @@ export const Certificates: React.FC = () => {
                     </span>
                   )}
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
